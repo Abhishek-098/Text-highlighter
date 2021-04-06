@@ -1,22 +1,40 @@
 import React, { useState } from 'react';
+import Highlighter from 'react-highlight-words';
 import './CSS/text.css';
 
 
-var Highlight = require('react-highlighter');
 
 const Text =(props) =>{
-    const [comments,addComment] = useState([]);
-    const handleMouseUp =()=>{
 
+    const [comments,addComment] = useState(["First"]);
+    const handleMouseUp =(event)=>{
         const text = window.getSelection().toString();
-        addComment(oldarr=>[...oldarr,text]);
+        if(text.length){
+            document.querySelector('#btnenable').style.display = "block";
+            const x = event.pageX;
+            const y = event.pageY;
+            document.querySelector('#btnenable').style.left = `${x}px`;
+            document.querySelector('#btnenable').style.top = `${y}px`;
 
+        }
         
     }
-    console.log(comments);
+    const commentEvent =()=>{
+        const text = window.getSelection().toString();
+        addComment(oldarr=>[...oldarr,text]);   
+        console.log(comments);
+    }
     return<>
         <div className ='js_selected_text'>
-            <p onMouseUp = {handleMouseUp}><Highlight search = "designed by fairies and completed by">{props.val}</Highlight></p>
+            <Highlighter 
+               highlightClassName="YourHighlightClass"
+                searchWords={["is","and"]}
+                autoEscape={true}
+                textToHighlight= {props.val}
+                onMouseUp ={handleMouseUp}
+                />
+                <button id="btnenable" className="button_comment" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Comment it" onClick={commentEvent}>C</button>
+
         </div>
         
     </>

@@ -5,14 +5,7 @@ import "../node_modules/bootstrap/dist/js/bootstrap.bundle";
 import Text from './Text';
 import data from './data';
 
-const ndata =data.map((value,ind)=>{
-    return(
-        <Text 
-            key = {ind}
-            val = {value}
-            />
-    );
-}) 
+
 const App =() =>{
     return<>
         <section>
@@ -23,12 +16,12 @@ const App =() =>{
                             <div className = "col-lg-8 col-12 text_box">
                                 <div className = "row pt-5">
                                     <div className = 'col-lg-8 mx-auto pt-5'>
-                                        {ndata}                  
+                                        <Text val={data}/>                
                                     </div>
                                 </div>
                             </div>
                             <div className = "col-lg-4 col-12">
-                                <h2>My name is </h2>
+                                {/* <h2>input your comments here </h2> */}
                             </div>
                         </div>
                     </div>

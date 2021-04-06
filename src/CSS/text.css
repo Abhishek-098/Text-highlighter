@@ -6,3 +6,24 @@
 ::selection{
     background-color: yellow;
 }
+
+.button_comment{
+    width: 2rem;
+    height: 2rem;
+    color: #fff;
+    background-color: #56b8f5;
+    border: 2px solid #56b8f5;
+    border-radius: 50%;
+    cursor: pointer;
+    position: absolute;
+    top:0;
+    left: 0;
+    z-index: 10;
+    display: none;
+    transition: color 0.2s, background-color 0.2s,ease-in-out;
+
+}
+.button_comment:hover{
+    background-color: #fff;
+    color: #56b8f5;
+}
