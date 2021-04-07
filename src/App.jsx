@@ -12,18 +12,7 @@ const App =() =>{
             <div className ="container-fluid">
                 <div className = "row outer">
                     <div className = "col-lg-10 col-12 mx-auto">
-                        <div className ='row pt-5'>
-                            <div className = "col-lg-8 col-12 text_box">
-                                <div className = "row pt-5">
-                                    <div className = 'col-lg-8 mx-auto pt-5'>
-                                        <Text val={data}/>                
-                                    </div>
-                                </div>
-                            </div>
-                            <div className = "col-lg-4 col-12">
-                                {/* <h2>input your comments here </h2> */}
-                            </div>
-                        </div>
+                        <Text val = {data}/>
                     </div>
                 </div>
             </div>
