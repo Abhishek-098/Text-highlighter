@@ -13,6 +13,7 @@ const App =() =>{
                 <div className = "row outer">
                     <div className = "col-lg-10 col-12 mx-auto">
                         <Text val = {data}/>
+                        
                     </div>
                 </div>
             </div>

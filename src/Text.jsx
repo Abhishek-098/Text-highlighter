@@ -1,8 +1,15 @@
 import React, { useState } from 'react';
 import Highlighter from 'react-highlight-words';
 import './CSS/text.css';
-import Cards from './Cards';
 
+function removeItem(array, item){
+    for(var i in array){
+        if(array[i]===item){
+            array.splice(i,1);
+            break;
+        }
+    }
+}
 
 const Text =(props) =>{
 
@@ -26,14 +33,35 @@ const Text =(props) =>{
         
 
     }
+    
+    // eslint-disable-next-line array-callback-return
     const ndata =comments.map((value,ind)=>{
-        console.log(value);
+        const cDelete=()=>{
+            addComment(()=>{
+                removeItem(comments,value);
+                return comments;
+            })
+            commentEvent();
+            
+
+    
+        }
+        
+
+        if(value===""){
+            console.log("Comment deleted");
+        }else{
+
         return(
-            <Cards
-                key = {ind}
-                val = {value}
-                />
-        );
+            <div className="card my-2" key={ind}>
+                                <div className="card-body">
+                                    <h6>{`COMMENT:${ind+1}`}</h6>
+                                    <p className="card-text">{value}</p>
+                                    {/* <a href="#" className="btn btn-primary">Go somewhere</a> */}
+                                    <button className = " delete_comment btn btn-danger" onClick ={cDelete}>Delete</button>
+                                </div>
+                            </div>
+        );}
     })
     return<>
         <div className ='row pt-5'>
@@ -48,6 +76,7 @@ const Text =(props) =>{
                                             textToHighlight= {props.val}
                                             onMouseUp ={handleMouseUp}
                                             />
+                                            
                                             <button id="btnenable" className="button_comment" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Comment it" onClick={commentEvent}>C</button>
 
                                     </div>               
@@ -55,7 +84,7 @@ const Text =(props) =>{
                                 </div>
                             </div>
                             <div className = "col-lg-4 col-12">
-                                {ndata}
+                            {ndata}
 
                             </div>
                         </div>

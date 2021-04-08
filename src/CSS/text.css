@@ -27,3 +27,13 @@
     background-color: #fff;
     color: #56b8f5;
 }
+.delete_comment{
+    width: 65px;
+    height: 30px;
+    font-size:12px;
+    
+}
+.time{
+    float: right;
+    color: gray;
+}

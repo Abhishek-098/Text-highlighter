@@ -1,12 +1,16 @@
 import React from 'react';
 
 const Cards =(props)=>{
-    console.log(props.val);
+    const cDelete = ()=>{
+        console.log("this is delete "+props.id);
+        
+    }
     return<>
     <div className="card">
         <div className="card-body">
-            <h5 className="card-title">{props.val}</h5>
+            <p className="card-title">{props.val}</p>
             {/* <a href="#" className="btn btn-primary">Go somewhere</a> */}
+            <button className = "btn btn-danger" onClick ={cDelete}>Delete</button>
         </div>
     </div>
 
